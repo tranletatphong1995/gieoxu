@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gieo Quẻ Kinh Dịch Online — Công Cụ Gieo 3 Đồng Xu</title>
+    <meta name="description" content="Công cụ gieo quẻ Kinh Dịch trực tuyến. Mô phỏng gieo 3 đồng xu 6 lần để tạo quẻ chính và quẻ biến theo phương pháp cổ truyền.">
+    <meta property="og:title" content="Gieo Quẻ Kinh Dịch Online">
+    <meta property="og:description" content="Mô phỏng gieo 3 đồng xu theo phương pháp cổ truyền Kinh Dịch">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☯</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <h1 class="header-title">易 經</h1>
+        <p class="header-subtitle">Gieo Quẻ Kinh Dịch</p>
+        <div class="header-divider"></div>
+    </header>
+
+    <!-- ===== START SECTION ===== -->
+    <section class="section-card" id="start-section">
+        <span class="start-icon">☯</span>
+        <p class="start-text">
+            Gieo <strong>3 đồng xu</strong> liên tiếp <strong>6 lần</strong> để tạo thành một quẻ Kinh Dịch.<br>
+            Mỗi lần gieo sẽ xác định một hào, từ dưới lên trên.<br><br>
+            <em>Hãy tĩnh tâm, tập trung vào câu hỏi của bạn trước khi gieo.</em>
+        </p>
+        <button class="btn" id="start-btn">☯ BẮT ĐẦU GIEO QUẺ</button>
+    </section>
+
+    <!-- ===== THROWING SECTION ===== -->
+    <section class="section-card" id="throwing-section" style="display: none;">
+        <!-- Coins -->
+        <div class="coin-area">
+            <div class="coins-container">
+                <div class="coin" id="coin-0">
+                    <div class="coin-inner">
+                        <span class="coin-front"></span>
+                    </div>
+                </div>
+                <div class="coin" id="coin-1">
+                    <div class="coin-inner">
+                        <span class="coin-front"></span>
+                    </div>
+                </div>
+                <div class="coin" id="coin-2">
+                    <div class="coin-inner">
+                        <span class="coin-front"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Throw Info -->
+            <div class="throw-info" id="throw-info">
+                <span class="info-text">Đang gieo hào</span>
+                <span class="throw-counter">
+                    <span id="current-line">1</span> / 6
+                </span>
+            </div>
+
+            <!-- Throw Button -->
+            <button class="btn" id="throw-btn">🪙 GIEO HÀO ĐẦU TIÊN</button>
+        </div>
+
+        <!-- Lines Display (builds bottom to top) -->
+        <div class="lines-display" id="lines-display"></div>
+    </section>
+
+    <!-- ===== RESULT SECTION ===== -->
+    <section class="section-card" id="result" style="display: none;">
+        <div class="result-header">
+            <h2>✦ KẾT QUẢ ✦</h2>
+        </div>
+
+        <div class="hexagram-pair">
+            <!-- Main Hexagram -->
+            <div class="hexagram-card" id="main-hex">
+                <h3>QUẺ CHÍNH</h3>
+                <div class="hex-lines"></div>
+                <div class="hex-chinese"></div>
+                <div class="hex-name"></div>
+                <div class="hex-trigram-info">
+                    <span class="hex-upper"></span>
+                    <span class="hex-lower"></span>
+                </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="arrow-divider" id="changed-section" style="display: none;">
+                <span>→</span>
+            </div>
+
+            <!-- Changed Hexagram -->
+            <div class="hexagram-card" id="changed-hex" style="display: none;">
+                <h3>QUẺ BIẾN</h3>
+                <div class="hex-lines"></div>
+                <div class="hex-chinese"></div>
+                <div class="hex-name"></div>
+                <div class="hex-trigram-info">
+                    <span class="hex-upper"></span>
+                    <span class="hex-lower"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reset Button -->
+    <div style="text-align: center; margin-top: 16px;">
+        <button class="btn btn-secondary" id="reset-btn" style="display: none;">🔄 GIEO LẠI</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>易經 · Kinh Dịch — Công cụ gieo quẻ trực tuyến</p>
+    </footer>
+</div>
+
+<script src="js/hexagram.js"></script>
+<script src="js/divination.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
