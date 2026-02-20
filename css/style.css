@@ -22,14 +22,23 @@
     --yang-color: #e8d5a3;
     --yin-color: #6b5b3e;
     --font-chinese: 'Ma Shan Zheng', 'Noto Serif TC', serif;
+    --font-viet: 'Playfair Display', 'Georgia', serif;
     --font-body: 'Noto Sans', 'Segoe UI', system-ui, sans-serif;
     --transition: 0.3s ease;
 }
 
 /* ---------- Reset & Base ---------- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: var(--font-body);
@@ -46,9 +55,9 @@ body::before {
     position: fixed;
     inset: 0;
     background:
-        radial-gradient(ellipse at 20% 30%, rgba(139,0,0,0.07) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(212,175,55,0.04) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(30,30,60,0.5) 0%, transparent 70%);
+        radial-gradient(ellipse at 20% 30%, rgba(139, 0, 0, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(30, 30, 60, 0.5) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
 }
@@ -59,8 +68,8 @@ body::after {
     position: fixed;
     inset: 0;
     background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(212,175,55,0.02) 60px, rgba(212,175,55,0.02) 61px),
-        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(212,175,55,0.02) 60px, rgba(212,175,55,0.02) 61px);
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(212, 175, 55, 0.02) 60px, rgba(212, 175, 55, 0.02) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(212, 175, 55, 0.02) 60px, rgba(212, 175, 55, 0.02) 61px);
     pointer-events: none;
     z-index: 0;
 }
@@ -92,8 +101,15 @@ body::after {
     opacity: 0.4;
     animation: spin 20s linear infinite;
 }
-.header::before { left: 10%; }
-.header::after { right: 10%; animation-direction: reverse; }
+
+.header::before {
+    left: 10%;
+}
+
+.header::after {
+    right: 10%;
+    animation-direction: reverse;
+}
 
 .header-title {
     font-family: var(--font-chinese);
@@ -101,17 +117,18 @@ body::after {
     color: var(--gold);
     text-shadow:
         0 0 20px var(--gold-glow),
-        0 2px 4px rgba(0,0,0,0.5);
+        0 2px 4px rgba(0, 0, 0, 0.5);
     letter-spacing: 12px;
     line-height: 1.2;
 }
 
 .header-subtitle {
-    font-family: var(--font-chinese);
+    font-family: var(--font-viet);
     font-size: clamp(20px, 4vw, 28px);
     color: var(--cream-dim);
     margin-top: 8px;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
+    font-weight: 600;
 }
 
 .header-divider {
@@ -121,6 +138,7 @@ body::after {
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
     position: relative;
 }
+
 .header-divider::after {
     content: '◆';
     position: absolute;
@@ -136,7 +154,7 @@ body::after {
 /* ---------- Section Card ---------- */
 .section-card {
     background: linear-gradient(135deg, var(--black-card) 0%, var(--black-surface) 100%);
-    border: 1px solid rgba(212,175,55,0.15);
+    border: 1px solid rgba(212, 175, 55, 0.15);
     border-radius: 12px;
     padding: 32px 24px;
     margin-bottom: 24px;
@@ -147,13 +165,17 @@ body::after {
 .section-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 /* ---------- Start Section ---------- */
-#start-section { text-align: center; }
+#start-section {
+    text-align: center;
+}
 
 .start-icon {
     font-size: 64px;
@@ -181,7 +203,7 @@ body::after {
     gap: 8px;
     padding: 14px 36px;
     border: 2px solid var(--gold);
-    background: linear-gradient(135deg, rgba(139,0,0,0.6), rgba(139,0,0,0.3));
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.6), rgba(139, 0, 0, 0.3));
     color: var(--gold-bright);
     font-family: var(--font-body);
     font-size: 18px;
@@ -199,17 +221,20 @@ body::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, transparent, rgba(255,215,0,0.1), transparent);
+    background: linear-gradient(135deg, transparent, rgba(255, 215, 0, 0.1), transparent);
     opacity: 0;
     transition: opacity var(--transition);
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, rgba(139,0,0,0.8), rgba(139,0,0,0.5));
-    box-shadow: 0 0 20px var(--red-glow), 0 0 40px rgba(212,175,55,0.15);
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(139, 0, 0, 0.5));
+    box-shadow: 0 0 20px var(--red-glow), 0 0 40px rgba(212, 175, 55, 0.15);
     transform: translateY(-2px);
 }
-.btn:hover::before { opacity: 1; }
+
+.btn:hover::before {
+    opacity: 1;
+}
 
 .btn:active {
     transform: translateY(0);
@@ -230,10 +255,11 @@ body::after {
     font-size: 15px;
     padding: 12px 28px;
 }
+
 .btn-secondary:hover {
     border-color: var(--gold);
     color: var(--gold);
-    background: rgba(212,175,55,0.08);
+    background: rgba(212, 175, 55, 0.08);
 }
 
 /* ---------- Coin Area ---------- */
@@ -266,9 +292,9 @@ body::after {
     border-radius: 50%;
     background: radial-gradient(circle at 35% 35%, #f0d780, #c9a830, #a08520);
     box-shadow:
-        0 4px 15px rgba(0,0,0,0.4),
-        inset 0 2px 4px rgba(255,255,255,0.2),
-        0 0 20px rgba(212,175,55,0.15);
+        0 4px 15px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(212, 175, 55, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -279,28 +305,34 @@ body::after {
     font-family: var(--font-chinese);
     font-size: 32px;
     color: var(--red-deep);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     font-weight: bold;
 }
 
 .coin.yang-result .coin-inner {
     background: radial-gradient(circle at 35% 35%, #ffe680, #d4af37, #b8960c);
     box-shadow:
-        0 4px 15px rgba(0,0,0,0.4),
-        inset 0 2px 4px rgba(255,255,255,0.3),
+        0 4px 15px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3),
         0 0 25px var(--gold-glow);
 }
-.coin.yang-result .coin-front { color: var(--red-deep); }
+
+.coin.yang-result .coin-front {
+    color: var(--red-deep);
+}
 
 .coin.yin-result .coin-inner {
     background: radial-gradient(circle at 35% 35%, #5a4a2a, #3d3020, #2a2018);
     box-shadow:
-        0 4px 15px rgba(0,0,0,0.5),
-        inset 0 1px 3px rgba(255,255,255,0.05),
-        0 0 15px rgba(90,74,42,0.2);
+        0 4px 15px rgba(0, 0, 0, 0.5),
+        inset 0 1px 3px rgba(255, 255, 255, 0.05),
+        0 0 15px rgba(90, 74, 42, 0.2);
     border-color: #4a3a20;
 }
-.coin.yin-result .coin-front { color: var(--cream-dim); }
+
+.coin.yin-result .coin-front {
+    color: var(--cream-dim);
+}
 
 /* Coin animations */
 .shaking .coins-container {
@@ -323,13 +355,13 @@ body::after {
 }
 
 .throw-counter {
-    font-family: var(--font-chinese);
+    font-family: var(--font-viet);
     font-size: 22px;
     color: var(--gold);
-    background: rgba(212,175,55,0.1);
+    background: rgba(212, 175, 55, 0.1);
     padding: 4px 16px;
     border-radius: 20px;
-    border: 1px solid rgba(212,175,55,0.2);
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .throw-info.complete .throw-counter {
@@ -383,7 +415,7 @@ body::after {
     height: 10px;
     background: linear-gradient(180deg, var(--yang-color), #c4b080);
     border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .bar-half {
@@ -391,7 +423,7 @@ body::after {
     height: 10px;
     background: linear-gradient(180deg, var(--yang-color), #c4b080);
     border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .bar-gap {
@@ -406,25 +438,28 @@ body::after {
 
 .moving-marker {
     position: absolute;
-    right: -28px;
-    font-size: 16px;
+    right: -30px;
+    font-size: 18px;
     color: var(--red-accent);
     font-weight: bold;
     text-shadow: 0 0 8px var(--red-glow);
+    line-height: 1;
 }
 
 .line-label {
-    font-size: 12px;
+    font-size: 18px;
     color: var(--cream-dim);
     opacity: 0.7;
-    min-width: 80px;
-    text-align: right;
+    min-width: 30px;
+    text-align: center;
+    font-weight: 700;
 }
 
-.line-bar.moving ~ .line-label {
+.line-label.moving-label {
     color: var(--red-accent);
     opacity: 1;
-    font-weight: 600;
+    font-size: 20px;
+    text-shadow: 0 0 8px var(--red-glow);
 }
 
 /* ---------- Result Section ---------- */
@@ -445,10 +480,11 @@ body::after {
 }
 
 .result-header h2 {
-    font-family: var(--font-chinese);
+    font-family: var(--font-viet);
     font-size: 28px;
     color: var(--gold);
     letter-spacing: 4px;
+    font-weight: 700;
 }
 
 .hexagram-pair {
@@ -463,19 +499,20 @@ body::after {
     flex: 1;
     min-width: 200px;
     max-width: 280px;
-    background: rgba(0,0,0,0.3);
-    border: 1px solid rgba(212,175,55,0.15);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.15);
     border-radius: 12px;
     padding: 24px 16px;
     text-align: center;
 }
 
 .hexagram-card h3 {
-    font-family: var(--font-chinese);
+    font-family: var(--font-viet);
     font-size: 18px;
     color: var(--cream-dim);
     margin-bottom: 16px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    font-weight: 700;
 }
 
 .hex-lines {
@@ -523,16 +560,17 @@ body::after {
 .trigram-sep {
     width: 80px;
     height: 1px;
-    background: rgba(212,175,55,0.15);
+    background: rgba(212, 175, 55, 0.15);
     margin: 4px 0;
 }
 
 .hex-name {
-    font-family: var(--font-chinese);
+    font-family: var(--font-viet);
     font-size: 20px;
     color: var(--gold-bright);
     margin: 8px 0 4px;
     text-shadow: 0 0 10px var(--gold-glow);
+    font-weight: 700;
 }
 
 .hex-chinese {
@@ -549,7 +587,8 @@ body::after {
     line-height: 1.8;
 }
 
-.hex-upper, .hex-lower {
+.hex-upper,
+.hex-lower {
     display: block;
 }
 
@@ -574,60 +613,167 @@ body::after {
 
 /* ---------- Animations ---------- */
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0) rotate(0); }
-    15% { transform: translateX(-8px) rotate(-3deg); }
-    30% { transform: translateX(7px) rotate(2deg); }
-    45% { transform: translateX(-6px) rotate(-2deg); }
-    60% { transform: translateX(5px) rotate(1deg); }
-    75% { transform: translateX(-3px) rotate(-1deg); }
-    90% { transform: translateX(2px) rotate(0.5deg); }
+
+    0%,
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+
+    15% {
+        transform: translateX(-8px) rotate(-3deg);
+    }
+
+    30% {
+        transform: translateX(7px) rotate(2deg);
+    }
+
+    45% {
+        transform: translateX(-6px) rotate(-2deg);
+    }
+
+    60% {
+        transform: translateX(5px) rotate(1deg);
+    }
+
+    75% {
+        transform: translateX(-3px) rotate(-1deg);
+    }
+
+    90% {
+        transform: translateX(2px) rotate(0.5deg);
+    }
 }
 
 @keyframes coinFlip {
-    0% { transform: translateY(0) rotateX(0); }
-    30% { transform: translateY(-60px) rotateX(540deg); }
-    50% { transform: translateY(-40px) rotateX(900deg); }
-    75% { transform: translateY(-10px) rotateX(1080deg); }
-    85% { transform: translateY(5px) rotateX(1200deg); }
-    100% { transform: translateY(0) rotateX(1260deg); }
+    0% {
+        transform: translateY(0) rotateX(0);
+    }
+
+    30% {
+        transform: translateY(-60px) rotateX(540deg);
+    }
+
+    50% {
+        transform: translateY(-40px) rotateX(900deg);
+    }
+
+    75% {
+        transform: translateY(-10px) rotateX(1080deg);
+    }
+
+    85% {
+        transform: translateY(5px) rotateX(1200deg);
+    }
+
+    100% {
+        transform: translateY(0) rotateX(1260deg);
+    }
 }
 
 @keyframes movingPulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--red-glow); }
-    50% { opacity: 0.7; box-shadow: 0 0 12px var(--red-glow); }
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 4px var(--red-glow);
+    }
+
+    50% {
+        opacity: 0.7;
+        box-shadow: 0 0 12px var(--red-glow);
+    }
 }
 
 @keyframes resultGlow {
-    0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.1); }
-    50% { box-shadow: 0 0 40px rgba(212,175,55,0.25); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
+    }
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 480px) {
-    .container { padding: 16px 12px 40px; }
-    .header-title { letter-spacing: 6px; }
-    .coins-container { gap: 16px; }
-    .coin { width: 64px; height: 64px; }
-    .coin-front { font-size: 26px; }
-    .section-card { padding: 24px 16px; }
-    .line-label { display: none; }
-    .hexagram-pair { gap: 12px; }
-    .hexagram-card { padding: 16px 12px; }
-    .btn { padding: 12px 24px; font-size: 15px; }
+    .container {
+        padding: 16px 12px 40px;
+    }
+
+    .header-title {
+        letter-spacing: 6px;
+    }
+
+    .coins-container {
+        gap: 16px;
+    }
+
+    .coin {
+        width: 64px;
+        height: 64px;
+    }
+
+    .coin-front {
+        font-size: 26px;
+    }
+
+    .section-card {
+        padding: 24px 16px;
+    }
+
+    .line-label {
+        display: none;
+    }
+
+    .hexagram-pair {
+        gap: 12px;
+    }
+
+    .hexagram-card {
+        padding: 16px 12px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 360px) {
-    .coin { width: 56px; height: 56px; }
-    .coin-front { font-size: 22px; }
-    .result-line { width: 90px; }
+    .coin {
+        width: 56px;
+        height: 56px;
+    }
+
+    .coin-front {
+        font-size: 22px;
+    }
+
+    .result-line {
+        width: 90px;
+    }
 }

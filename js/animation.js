@@ -75,19 +75,18 @@ const Animation = {
         // Moving line indicator
         if (throwResult.isMoving) {
             lineBar.classList.add('moving');
-            const marker = document.createElement('span');
-            marker.className = 'moving-marker';
-            marker.textContent = throwResult.value === 9 ? '◯' : '✕';
-            lineBar.appendChild(marker);
         }
-
-        const lineLabel = document.createElement('span');
-        lineLabel.className = 'line-label';
-        lineLabel.textContent = throwResult.label;
 
         lineEl.appendChild(lineNumber);
         lineEl.appendChild(lineBar);
-        lineEl.appendChild(lineLabel);
+
+        // Show simple O/X marker for moving lines
+        if (throwResult.isMoving) {
+            const lineLabel = document.createElement('span');
+            lineLabel.className = 'line-label moving-label';
+            lineLabel.textContent = throwResult.value === 9 ? 'O' : 'X';
+            lineEl.appendChild(lineLabel);
+        }
 
         // Insert at the top (lines build bottom-to-top visually)
         container.insertBefore(lineEl, container.firstChild);
